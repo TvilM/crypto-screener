@@ -1,0 +1,17 @@
+// Добавьте этот метод в src/services/api.js
+export const fetchCryptoHistory = async (coinId, currency = 'usd', days = 7) => {
+  try {
+    const response = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=${days}&interval=daily`
+    );
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch chart data');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('History API Error:', error);
+    throw error;
+  }
+};
