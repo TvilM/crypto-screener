@@ -37,20 +37,25 @@ export const fetchCryptoHistory = async (coinId, currency = 'usd', days = 7) => 
   }
 };
 
-// Получение OHLC данных для свечного графика
+// src/services/api.js
 export const fetchCryptoOHLC = async (coinId, currency = 'usd', days = 7) => {
   try {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=${currency}&days=${days}`
-    );
+    console.log('Запрос OHLC данных для:', coinId, 'на', days, 'дней');
+    const url = `https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=${currency}&days=${days}`;
+    console.log('URL запроса:', url);
+    
+    const response = await fetch(url);
+    console.log('Статус ответа:', response.status);
     
     if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+      const errorData = await response.text();
+      console.error('Ошибка API:', errorData);
+      throw new Error(`API error: ${response.status} - ${errorData}`);
     }
     
     const data = await response.json();
+    console.log('Получены OHLC данные:', data.slice(0, 3)); // Показываем первые 3 записи
     
-    // Форматирование данных для свечного графика
     return data.map(([timestamp, open, high, low, close]) => ({
       x: new Date(timestamp),
       o: open,
@@ -59,7 +64,7 @@ export const fetchCryptoOHLC = async (coinId, currency = 'usd', days = 7) => {
       c: close
     }));
   } catch (error) {
-    console.error('OHLC API Error:', error);
+    console.error('КРИТИЧЕСКАЯ ОШИБКА OHLC API:', error);
     throw error;
   }
 };
