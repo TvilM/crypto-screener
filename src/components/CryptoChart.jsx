@@ -157,7 +157,6 @@ const CryptoChart = ({ coinId, coinName, days = 7 }) => {
             <p className="mb-4">Попробуйте выбрать другой период или проверьте подключение к интернету.</p>
             <p className="mb-4">Попробуйте выбрать другой период или проверьте подключение к интернету.</p>
             <p className="mb-4">Попробуйте выбрать другой период или проверьте подключение к интернету.</p>
-            <p className="mb-4">Попробуйте выбрать другой период или проверьте подключение к интернету.</p>
             <button 
               onClick={() => setTimeRange(7)}
               className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
