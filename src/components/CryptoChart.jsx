@@ -88,11 +88,8 @@ const CryptoChart = ({ coinId, coinName }) => {
         </div>
         
         <div className="p-4 bg-yellow-50 rounded-lg">
-          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше:</h3>
-          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше:</h3>
-          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше:</h3>
-          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше:</h3>
-          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше:</h3>
+          <h3 className="font-bold text-yellow-800 mb-2">🛠️ Что делать дальше???:</h3>
+
           <ol className="list-decimal pl-5 space-y-2 text-gray-700">
             <li>Проверьте консоль браузера (F12) на наличие ошибок</li>
             <li>Убедитесь, что запросы к API CoinGecko проходят успешно</li>
