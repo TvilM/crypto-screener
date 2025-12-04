@@ -51,19 +51,17 @@ const CryptoChart = ({ coinId, coinName }) => {
   if (error) {
     return (
       <div className="bg-white rounded-xl shadow-sm p-6">
-        <div className="h-[400px] flex flex-col items-center justify-center border-2 border-dashed border-red-300 rounded-lg bg-red-50">
-          <div className="text-red-600 text-2xl mb-4">❌</div>
-          <p className="text-lg font-medium mb-2 text-red-800">{error}</p>
-          <p className="text-gray-600 mb-4 max-w-md text-center">
-            Это может быть связано с ограничениями API CoinGecko или проблемами с сетью. 
-            Попробуйте обновить страницу или выбрать другой период.
-          </p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
-          >
-            Обновить страницу
-          </button>
+        <div className="h-[400px] flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg">
+          <div className="text-center text-gray-500 max-w-md p-4">
+            <p className="text-lg font-medium mb-2">{error || 'Нет данных для отображения графика'}</p>
+            <p className="mb-4">Попробуйте выбрать другой период или проверьте подключение к интернету.</p>
+            <button 
+              onClick={() => setTimeRange(7)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+            >
+              Обновить данные
+            </button>
+          </div>
         </div>
       </div>
     );
